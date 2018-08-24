@@ -19,6 +19,8 @@ import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,10 +84,6 @@ public class ArticleDetailFragment extends Fragment implements
         setHasOptionsMenu(true);
     }
 
-    public ArticleDetailActivity getActivityCast() {
-        return (ArticleDetailActivity) getActivity();
-    }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -112,26 +110,26 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
         bindViews();
-
-//        final ArticleDetailActivity appCompatActivity = (ArticleDetailActivity) getActivity();
-//        if (appCompatActivity != null) {
-//            Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
-//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    appCompatActivity.onBackPressed();
-//                }
-//            });
-//            appCompatActivity.setSupportActionBar(toolbar);
-//            ActionBar actionBar = appCompatActivity.getSupportActionBar();
-//            if (actionBar != null) {
-//                actionBar.setDisplayHomeAsUpEnabled(true);
-//                actionBar.setTitle("");
-//            }
-//        }
-
+        setToolbar();
         return mRootView;
     }
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
+        ArticleDetailActivity activity = (ArticleDetailActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        ActionBar supportActionBar = activity.getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle("");
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String asd = "";
+        return super.onOptionsItemSelected(item);
+    }
+
     private Date parsePublishedDate() {
         try {
             String date = mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE);

@@ -24,7 +24,5 @@
 
     <style name="AppTheme" parent="Base.AppTheme"/>
 
-    <style name="AppTheme.NoStatusBar">
-        <item name="colorControlNormal">@color/white</item>
-    </style>
+    <style name="AppTheme.NoStatusBar"/>
 </resources>
