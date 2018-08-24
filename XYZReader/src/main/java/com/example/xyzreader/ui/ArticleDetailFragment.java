@@ -110,7 +110,6 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
         bindViews();
-        setToolbar();
         return mRootView;
     }
 
@@ -122,12 +121,6 @@ public class ArticleDetailFragment extends Fragment implements
         if (supportActionBar != null) {
             supportActionBar.setTitle("");
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        String asd = "";
-        return super.onOptionsItemSelected(item);
     }
 
     private Date parsePublishedDate() {
@@ -145,7 +138,7 @@ public class ArticleDetailFragment extends Fragment implements
         if (mRootView == null) {
             return;
         }
-
+        setToolbar();
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
@@ -225,7 +218,6 @@ public class ArticleDetailFragment extends Fragment implements
             mCursor.close();
             mCursor = null;
         }
-
         bindViews();
     }
 

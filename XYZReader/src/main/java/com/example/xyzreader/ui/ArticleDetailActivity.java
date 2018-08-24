@@ -99,13 +99,13 @@ public class ArticleDetailActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            super.onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == android.R.id.home) {
+//            super.onBackPressed();
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
